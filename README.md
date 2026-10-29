@@ -22,7 +22,7 @@ Forge ventures are clients of this workbench, not contributors to it. Their data
 |---|---|---|
 | `methods/` | The analytical frameworks: Intent Modeling, Right to Win, Entity and Semantic Mapping | Stubs |
 | `instruments/` | Measurement protocols, each with a pass bar and a list of what it does not claim | Drafts |
-| `research/` | Governance for research runs: evidence lanes, study design, the evidence file schema | Drafts |
+| `research/` | Governance for research runs: evidence lanes, study designs, the evidence file schema | Drafts |
 | `craft/` | How findings become deliverables: deck rules, the case panel pack | Drafts; voice is a stub |
 | `glossary/` | Shared vocabulary | Placeholder |
 | `agents/` | Anything that runs a loop with tools toward a goal | Stub |

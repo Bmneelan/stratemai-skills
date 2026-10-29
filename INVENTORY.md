@@ -48,7 +48,7 @@ Location: a path means this repo. `repo <name>` means a separate GitHub repo und
 | research-corpus (collectors, frames, ledger, raw data) | built | repo `research-corpus` | Stays the engine; rules move here |
 | research-run skill | built | repo `research-corpus` | Pointer in `research/research-run/`; skill moves at consolidation |
 | Evidence lanes, recomputation, retired numbers | draft | `research/evidence-lanes/` | |
-| Study design rules (Sep 2026 calibration) | draft | `research/research-run/study-design.md` | |
+| Study design: AI answer naming (Sep 2026 calibration) | draft | `research/study-design/ai-answer-naming.md` | Folder holds one file per study design |
 | Evidence file schema v0.1 | draft | `research/schemas/evidence-file.schema.json` | Shared by research-corpus and answer-engine-check; neither emits it yet |
 | Tier system 0 to 3 with `decision` flag and `--trend` | built | repo `research-corpus`, commit edf58b9 | |
 | Source registry with lane field (measured / vendor_modeled / reported) | queued | `claude/machinery-registry-draft.md` | Machinery item 1; lane names should match `research/evidence-lanes/` |
@@ -75,6 +75,16 @@ Write-ups stay where they are; the data behind them stays in research-corpus.
 | Method vs Profound | artifact "Research Method vs Profound"; `claude/profound-trial-read-2026-10-19.md` |
 | Search Atlas site audit | `claude/search-atlas-site-audit-2026-10-18.md` |
 | AI content and watermarks (desk research) | `claude/ai-content-watermark-research-2026-10-27.md` |
+
+## Cases
+
+Write-ups are Wayfinder evidence and are listed here for navigation. Case data stays in research-corpus (or the case's own repo). Kept even where a case may not need the row, so a good idea isn't lost.
+
+| Case | Category type | Built | Open |
+|---|---|---|---|
+| HVAC, Naperville | Local services | Artifact "Naperville HVAC Read"; artifact "Answer Engine Check Timeline"; harness runs | Presence test, plain-language Read, three buyer conversations |
+| P&G fabric care | CPG and eCommerce | Artifacts "Laundry in the AI Answer" (two versions) and "Fabric Care, Observed" | None recorded |
+| Zoom | Enterprise SaaS | Case master and addendum, status files, panel pack, deck v17 text, `Zoom_AI_Answer_Read.pptx`, artifacts (Synthesis, Measurement Plan, Sparring Draft, Case Evidence, How I approached this, What I'd Do First, Panel Deck, dashboard); stored data in repo `octomai-zoom` | Named or anonymized; what is shown |
 
 ## Craft
 

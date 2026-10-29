@@ -31,7 +31,7 @@ A page passes if its late share is 50% or less. The sample figure (flagged of to
 
 ## Reference result
 
-Oct 2026 enterprise SaaS case: 56 of 147 cited client pages flagged. Whether the three test-target pages were among them was set as a week-1 check, not reported as a finding.
+Zoom case, Oct 2026 (enterprise SaaS): 56 of 147 cited zoom.com pages flagged. Whether the three test-target pages were among them was set as a week-1 check, not reported as a finding.
 
 ## What it does not claim
 

@@ -20,7 +20,7 @@ Method lives here; data lives with whoever owns it. Raw runs, ledgers and case d
 - The description carries all the when-to-use logic. The body is for how.
 - Body under 500 lines. Imperative instructions. Explain why a rule matters rather than stacking MUSTs.
 - Instruments follow a fixed order: what it measures, when to use it, protocol, pass bar, what it does not claim, what to record.
-- Reference results describe the case by category and month ("Oct 2026 enterprise SaaS case"), not by client name.
+- Reference results name the client and the month ("Zoom case, Oct 2026"), since that helps navigation. They carry counts and what was learned, never the underlying answers, citations or client material.
 
 ## Language rules that apply to every skill
 

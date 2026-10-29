@@ -38,7 +38,9 @@ No single threshold yet; the pilot sets the rubric, not the bar. Until a benchma
 
 ## Reference result
 
-Pilot, Oct 2026, one keynote, two tools, about 40 minutes of overlap. One tool inverted a statistic ("fewer than half" became "more than half"), lost a multi-part analyst claim, and garbled most product and partner names. Its summarizer named an older product name that appeared in neither transcript. Both tools misspelled some people's names. The more accurate tool also had the shorter coverage: a reliable capture and an accurate one were not the same tool that day.
+Pilot, Oct 20 2026: the Zoomtopia main keynote, Zoom's livestream transcript against Otter recording through speakers, about 40 minutes of overlap. Otter inverted a statistic ("fewer than half" became "more than half"), lost a multi-part analyst claim, and garbled most product and partner names. Otter's summarizer named "Zoom AI Companion," an older name that appeared in neither transcript. Both tools misspelled some people's names. Zoom's transcript was more accurate but covered only about 40 minutes; Otter covered all 90: a reliable capture and an accurate one were not the same tool that day.
+
+Full write-up: `claude/transcript-fidelity-pilot-zoomtopia-keynote.md` in the Stratemai Skills and Agents project.
 
 ## What it does not claim
 

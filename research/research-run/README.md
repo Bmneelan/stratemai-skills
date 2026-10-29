@@ -4,7 +4,7 @@ Governance pointer. The research-run skill itself stays in `research-corpus` unt
 
 | File | Holds |
 |---|---|
-| `study-design.md` | How prompt sets, repetitions and sample sizes are set, from the Sep 2026 calibration runs |
+| `../study-design/` | Study designs; the first is AI answer naming, from the Sep 2026 calibration runs |
 | `../evidence-lanes/SKILL.md` | Lane labels, recomputation and the retired-numbers rule |
 | `../schemas/evidence-file.schema.json` | The evidence file shared by `research-corpus` and `answer-engine-check` |
 

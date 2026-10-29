@@ -45,7 +45,7 @@ A figure passes if a reader can answer, from the text alone: how many out of how
 
 ## Reference result
 
-Oct 2026 enterprise SaaS case, Google AI Overviews, same days: the established product line was named in 76% of unbranded questions (34 of 45), the new product line in 6% (4 of 62). The 4 of 62 carries an interval of roughly 2 to 16 percent; it led because it was the like-for-like comparison, and the operating baseline for weekly tracking was 12% on 215 answers across three engines. The baseline product line ran on Google only, so it was never compared with the three-engine figures.
+Zoom case, Oct 2026 (enterprise SaaS), Google AI Overviews, same days: Zoom Workplace (the established line) was named in 76% of unbranded questions (34 of 45), the Zoom AI Receptionist in 6% (4 of 62). The 4 of 62 carries an interval of roughly 2 to 16 percent; it led because it was the like-for-like comparison, and the operating baseline for weekly tracking was 12% on 215 answers across three engines. Workplace ran on Google only, so it was never compared with the three-engine figures.
 
 ## What it does not claim
 

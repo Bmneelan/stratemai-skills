@@ -43,7 +43,7 @@ There is no agreement threshold for the classes themselves, because class assign
 
 ## Reference result
 
-Oct 2026 enterprise SaaS case, 145 unbranded answers that named competitors and not the client, 810 citations: competitor-owned 53% before the unknown-domain pass, 71% after. Reviews and listicles 5%, Reddit 1%, client-owned 0%.
+Zoom case, Oct 2026 (enterprise SaaS), 145 unbranded answers that AI Receptionist answers that named competitors and not Zoom, 810 citations: competitor-owned 53% before the unknown-domain pass, 71% after. Reviews and listicles 5%, Reddit 1%, Zoom-owned 0%. Most cited: Smith.ai, RingCentral and Goodcall receptionist pages.
 
 ## What it does not claim
 

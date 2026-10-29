@@ -37,7 +37,7 @@ Thirty answers is a floor, not a precision target. At 30, one or two disagreemen
 
 ## Reference result
 
-Oct 2026 enterprise SaaS case, one reader, 30 answers:
+Zoom case, Oct 2026 (enterprise SaaS), one reader, 30 answers:
 
 | Label | Agreement | Outcome |
 |---|---|---|
