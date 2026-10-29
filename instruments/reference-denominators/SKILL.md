@@ -37,7 +37,13 @@ If the baseline only ran on one surface, it is compared only on that surface. Sa
 
 ### 5. Show the interval when the denominator is small
 
-When the denominator is under about 100, or the count is under about 10, show an interval (a Wilson 95% interval is fine) next to the point estimate. A small count can lead a slide if it is the like-for-like comparison, but the reader must see how wide it is. Name a larger-denominator figure as the operating baseline for tracking.
+Compute a 95% interval (Wilson) for every rate and store it in the numbers ledger, whatever the sample size. It costs nothing, and anyone challenging a number can see how firm it is.
+
+Show the interval on the slide or page when the denominator is under about 100 or the count is under about 10. That is where the interval changes what a reader should believe; below about 10 hits the usual shortcut for estimating error also breaks down. On larger samples the interval stays in the ledger, because on a slide it is clutter.
+
+Use 95%, not 90%. It is the standard a reviewer expects, and a narrower interval reads as shading the number.
+
+A small count can lead a slide if it is the like-for-like comparison, but the reader must see how wide it is. Name a larger-denominator figure as the operating baseline for tracking.
 
 ## Pass bar
 
@@ -54,4 +60,4 @@ Zoom case, Oct 2026 (enterprise SaaS), Google AI Overviews, same days: Zoom Work
 
 ## What to record
 
-For every figure that leaves the run: numerator, denominator, surface, prompt-set hash, dates, level (answer or citation), interval if shown, and the baseline it is compared with.
+For every figure that leaves the run: numerator, denominator, surface, prompt-set hash, dates, level (answer or citation), the 95% interval (always), whether it was shown, and the baseline it is compared with.
