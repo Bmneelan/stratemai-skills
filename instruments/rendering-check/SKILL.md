@@ -19,7 +19,7 @@ On every client page an answer cites, and on every page you intend to change as 
 2. For each page:
    - Fetch the raw HTML without executing scripts. Strip tags, scripts, styles and navigation boilerplate the same way for every page. Count words.
    - Load the same URL in a headless browser, wait for network idle, then extract visible body text with the same stripping rules. Count words.
-   - Compute the late share: (rendered minus raw) divided by rendered.
+   - Compute the late share: (rendered minus raw) divided by rendered. If raw exceeds rendered (the browser removed or hid text), record the late share as zero and note the page, since that is a different problem worth a look.
 3. Flag any page where the late share is above 50%, meaning more than half its words load after the page opens.
 4. For each test target, record pass or flag individually. Whether a specific target is affected is a check you run, not a finding you infer from the sample rate.
 
@@ -27,7 +27,9 @@ Use the same user agent, viewport and wait rule for every page, and record them.
 
 ## Pass bar
 
-A page passes if its late share is 50% or less. The sample figure (flagged of total) is reported with its denominator.
+A page passes if its late share is 50% or less. The 50% line is a working heuristic for "most of the page arrives late," not a known threshold at which engines fail.
+
+The sample figure (flagged of total) is reported with its denominator and interval. Pages built from one template tend to pass or fail together, so note how many templates the flagged pages come from; 56 flagged pages from three templates is a much smaller fix than 56 from fifty.
 
 ## Reference result
 

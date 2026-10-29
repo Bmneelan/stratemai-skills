@@ -47,9 +47,9 @@ Location: a path means this repo. `repo <name>` means a separate GitHub repo und
 |---|---|---|---|
 | research-corpus (collectors, frames, ledger, raw data) | built | repo `research-corpus` | Stays the engine; rules move here |
 | research-run skill | built | repo `research-corpus` | Pointer in `research/research-run/`; skill moves at consolidation |
-| Evidence lanes (origin, kind, grade; lane looked up), recomputation, retired numbers | draft | `research/evidence-lanes/` | Six lanes, including Public commentary |
+| Evidence lanes (origin, kind, grade; lane looked up), recomputation, retired numbers | draft | `research/evidence-lanes/` | Seven lanes, including Stratemai Research and Public commentary |
 | Study design: AI answer naming (Sep 2026 calibration) | draft | `research/study-design/ai-answer-naming.md` | Folder holds one file per study design |
-| Evidence file schema v0.2 (origin, kind, grade on every number; lane enforced by lookup) | draft | `research/schemas/evidence-file.schema.json` | Shared by research-corpus and answer-engine-check; neither emits it yet |
+| Evidence file schema v0.3 (origin, kind, grade, result on every number; lane enforced by lookup; interval required on every rate) | draft | `research/schemas/evidence-file.schema.json` | Shared by research-corpus and answer-engine-check; neither emits it yet |
 | Tier system 0 to 3 with `decision` flag and `--trend` | built | repo `research-corpus`, commit edf58b9 | |
 | Source registry | queued | `claude/machinery-registry-draft.md` | Machinery item 1. Its three lanes are retired: use origin, kind and grade from `research/evidence-lanes/`, which carries the mapping |
 | Governance update (evidence rules, Human Audit, DECISIONS.md, lessons.md, no-AI-attribution) | queued | `claude/machinery-queue.md` | Machinery item 2; partly covered by this repo, to redraft |
@@ -58,6 +58,7 @@ Location: a path means this repo. `repo <name>` means a separate GitHub repo und
 | `credit-check.mjs`, `serp.mjs`, `serp-report.mjs` | built | repo `research-corpus` | |
 | `shadow-gemini.mjs` | built | location unknown | Find it |
 | Verification step and skeptic pass | unconfirmed | repo `research-corpus` | Status check |
+| Falsification and validation pass (Oct 29, 2026) | done | this repo's history | Independent review of all drafts; findings applied the same day. Source-numbers check still due for figures not in the project docs |
 | Backlog of machinery ideas | list | `claude/machinery-backlog.md` | |
 
 ## Findings (evidence that the method works)

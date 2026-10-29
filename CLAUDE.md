@@ -24,10 +24,11 @@ Method lives here; data lives with whoever owns it. Raw runs, ledgers and case d
 
 ## Language rules that apply to every skill
 
-- "Cite," never "retrieve," unless the Closed Book Live API Model has run.
+- "Cite," never "retrieve." Retrieval is only observed when an engine's own search results are logged for that answer.
 - "Working explanation" or "leading hypothesis," never "cause."
 - Every number carries surface, sample and dates, plus origin, kind and grade. Its lane is looked up from origin and kind (`research/evidence-lanes/`), never chosen by hand.
 - Codes never change once data uses them; retire and point to a successor instead. Labels for readers can be reworded freely.
+- A difference whose 95% interval includes zero is "Inconclusive (not statistically significant)": recorded internally, never shown to a client as a number.
 - No em dashes in deliverable text.
 
 ## Repo conventions

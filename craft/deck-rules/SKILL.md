@@ -17,7 +17,7 @@ Evidence lanes carry plain labels on slides:
 |---|---|
 | Measured | Custom research |
 | Observed | [Client] public sources |
-| Reported | [Client]-reported |
+| Reported | [Client]-reported, Published research or Public commentary, depending on who said it |
 | Vendor | Third-party tool |
 | Outcome | Data result |
 | Outside-in snapshot | One-week snapshot of public AI answers; no [client] internal data (adjust the duration) |
@@ -73,7 +73,7 @@ The diagnostics section says, for each gap, what is a search problem and what is
 
 ## 8. Causal language
 
-"Cite," never "retrieve," unless the Closed Book Live API Model has run. "Working explanation" or "leading hypothesis," never "cause." Payoffs need a number or a reason a CFO would accept.
+"Cite," never "retrieve": retrieval is only observed when an engine's own search results are logged. "Working explanation" or "leading hypothesis," never "cause." Payoffs need a number or a reason a CFO would accept.
 
 ## Review pass
 

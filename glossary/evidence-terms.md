@@ -19,10 +19,12 @@ Codes used on every number (see `research/evidence-lanes/`). Codes never change 
 | `observed` | Seen directly and stored as it was | An AI answer captured verbatim; a page as served on a date | A modeled traffic estimate |
 | `modeled` | An estimate from a model | Modeled prompt volume; CPC estimate | A count from stored answers |
 | `stated` | A claim someone makes about themselves | "Customers up 256%" from earnings | What the client's page shows a buyer (that is `observed`) |
-| `finding` | A conclusion from a test, study or ruling | A lab's test result | A press summary of the finding (go to the source) |
+| `finding` | A conclusion from a test, study or ruling | A lab's test result; a Stratemai Human Audit result | A press summary of the finding (go to the source) |
 | `opinion` | A view or experience someone shares | "Setup took five minutes" in a review | How many reviews say it (count it: `stratemai` + `observed`) |
 
 ## grade
+
+Grades keep the registry's capitals, the one exception to lowercase codes.
 
 | Code | Definition |
 |---|---|
@@ -35,18 +37,26 @@ Codes used on every number (see `research/evidence-lanes/`). Codes never change 
 | Code | Label | origin + kind |
 |---|---|---|
 | `custom_research` | Custom research | `stratemai` + `observed` |
+| `stratemai_research` | Stratemai Research | `stratemai` + `finding` |
 | `client_public_sources` | Client public sources | `client` + `observed` |
 | `client_reported` | Client-reported | `client` + `stated` |
 | `third_party_tool` | Third-party tool | `vendor` + `modeled` or `observed` |
 | `published_research` | Published research | `independent` + `finding` |
 | `public_commentary` | Public commentary | `public` + `opinion` |
 
+## Result labels
+
+| Label | Meaning |
+|---|---|
+| Inconclusive (not statistically significant) | The 95% interval on a difference includes zero. Recorded internally with its estimate and interval; never shown to a client as a number |
+| Too small to judge | A Human Audit sample below the required size; no pass or fail declared |
+
 ## Retired
 
 | Retired | Use instead |
 |---|---|
 | `measured` (registry lane) | `stratemai` + `observed` |
-| `vendor_modeled` (registry lane) | `vendor` + `modeled` |
+| `vendor_modeled` (registry lane) | `vendor` + `modeled`, or `vendor` + `observed` for a vendor's crawl facts |
 | `reported` (registry lane) | `client` + `stated`, `independent` + `finding`, or `public` + `opinion` |
 | `estimated`, `company_stated`, `independent_finding`, `user_voice` (registry claim types) | `modeled`, `stated`, `finding`, `opinion` |
 | "Measured", "Observed", "Reported", "Vendor" (old slide labels) | The lane labels above |

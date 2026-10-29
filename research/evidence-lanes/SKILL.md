@@ -35,13 +35,14 @@ Earlier versions used one word, "lane," to answer two questions at once: who pro
 
 ### `grade`: fitness for this specific use
 
-A, B or C, as defined in the source registry. A grade belongs to a use, not to a source: one Reddit extract can be A for where Reddit appears and C for what a thread claims. The registry's rule stands: a claim needs one A, or two Bs from different owners.
+A, B or C, as defined in the source registry. A grade belongs to a use, not to a source: one Reddit extract can be A for where Reddit appears and C for what a thread claims. The registry's rule stands: a claim needs one A, or two Bs from different sources that do not share an origin owner (two pages from the same vendor count once).
 
 ## The lane is looked up, not chosen
 
 | origin | kind | Lane (what the reader sees) | Example |
 |---|---|---|---|
-| `stratemai` | `observed` | Custom research | Zoom named in 12% of receptionist answers |
+| `stratemai` | `observed` | Custom research | Zoom named in 25 of 215 unbranded receptionist answers (12%), three engines pooled, Oct 18 to 20 2026 |
+| `stratemai` | `finding` | Stratemai Research | A Human Audit result; a Closed Book Live API Model result; a calibration finding |
 | `client` | `observed` | Client public sources | The start guide lists a Zoom Phone licence, read by hand on a date |
 | `client` | `stated` | Client-reported | Zoom Virtual Agent customers up 256% |
 | `vendor` | `modeled` | Third-party tool | About 18,000 purchase-intent prompts, modeled |
@@ -54,6 +55,7 @@ A combination not in this table cannot reach a deliverable until a lane is decid
 Two cases that look alike and are not:
 
 - **Counting Reddit citations** is `stratemai + observed`, so Custom research. **Quoting what a thread says** is `public + opinion`, so Public commentary.
+- **Custom research** is what Brad's runs counted (a naming rate). **Stratemai Research** is what Brad's tests concluded (an audit result, a test outcome, a calibration finding). The first is a measurement; the second is a judgement built on measurements, so it is labelled differently.
 - **A client's page as served** is `client + observed`. **A figure the client announces** is `client + stated`. The first shows what buyers and engines can read; the second is the company's word.
 
 ## Rules
@@ -64,12 +66,13 @@ Two cases that look alike and are not:
 4. **Public commentary is illustration, not proof.** It shows what buyers say, never how many say it, unless Brad counted it (which makes the count Custom research).
 5. **A fact an agent reported but nobody read does not reach a deliverable.** A person reads the source before the claim is used. This rule exists because a support article once reached a slide on an agent's "reported, not read" tag.
 6. **Every client-facing number is recomputed from stored data** by code separate from the collector, or labelled "not yet recomputed." Code that collected the data shares its bugs; separate code catches them.
-7. **Retired numbers are listed and never reintroduced.** Each case keeps a retired list with reasons, and every later draft is checked against it.
-8. **Outside AI research is never evidence.** Deep-research outputs and model reviews are how something was found. Every claim taken from them is re-sourced and tagged by its real origin.
+7. **Inconclusive results stay internal.** A test whose interval includes zero is recorded as "Inconclusive (not statistically significant)" with its estimate and interval in the ledger, and never appears on a client slide as a number.
+8. **Retired numbers are listed and never reintroduced.** Each case keeps a retired list with reasons, and every later draft is checked against it.
+9. **Outside AI research is never evidence.** Deep-research outputs and model reviews are how something was found. Every claim taken from them is re-sourced and tagged by its real origin.
 
 ## Naming conventions
 
-- **Codes and labels are separate.** Codes (`stratemai`, `observed`) are lowercase with underscores and never change once data uses them. Lane labels are for readers and can be reworded here without touching data.
+- **Codes and labels are separate.** Codes (`stratemai`, `observed`) are lowercase with underscores (grades A, B and C are the one exception, kept as the registry writes them) and never change once data uses them. Lane labels are for readers and can be reworded here without touching data.
 - **One word, one meaning.** Each code has one definition, in the glossary. Retired words: "measured" and "reported" as lane names, and "Observed" as a slide label. Use the fields above instead.
 - **Deprecate, don't rename.** A replaced code is marked retired with a pointer to its successor.
 - **No compound codes.** `vendor_modeled` packs two answers into one word; it splits into `vendor` + `modeled`.

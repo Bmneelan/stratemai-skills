@@ -17,35 +17,41 @@ Run it once per labelling scheme per study, before any rate is reported. Run it 
 
 ## Protocol
 
-1. Draw 30 answers from the labelled set. Spread the draw across engines, scenarios and days in rough proportion to the full set, so one engine's quirks do not dominate. Record how the sample was drawn.
+1. Draw the sample in two parts, and record how each was drawn:
+   - **Named answers:** at least 50 answers where the code says the client is named, spread across engines, scenarios and days. Recommendation labels only mean something on these, and a proportional draw would hold too few when the client is rarely named.
+   - **Not-named answers:** at least 30, to check that the code is not missing mentions.
+
+   Spread each part across engines, scenarios and days so one engine's quirks do not dominate.
 2. Hide the machine labels from the reader. Reading with the labels visible pulls the reader toward agreeing.
 3. The reader labels each answer on every label in use. At minimum:
    - **Named:** is the subject named, yes or no.
    - **Recommended:** does the answer recommend the subject, yes or no.
    - **Recommendation level:** the four-level label: top pick; recommended among others; mentioned, not recommended; N/A (subject not named, so no level applies). Use the same definitions the code uses, written down before reading.
-4. Compare reader and machine label by label. Score agreement separately for each label. Never pool labels into one agreement figure, because a pooled figure hides the label that fails.
-5. Write down every disagreement with a one-line note on why. The notes are what fixes the labeller.
+4. Compare reader and machine label by label. Score agreement separately for each label, and score the two recommendation labels on named answers only; on not-named answers they agree automatically, which would inflate the figure. Never pool labels into one agreement figure, because a pooled figure hides the label that fails.
+5. For each label, report raw agreement, its 95% interval, and Cohen's kappa. Kappa corrects for agreement that would happen by chance when one answer is far more common than the other.
+6. Write down every disagreement with a one-line note on why. The notes are what fixes the labeller.
 
 ## Pass bar
 
-80% agreement per label.
+80% agreement per label, judged on the sample above. The 80% figure is a working standard, not a statistical law.
 
-- A label at or above 80% can be reported, with the Human Audit cited.
-- A label below 80% is not reported. It is deferred to a two-reader baseline: two people label the same sample independently, their agreement with each other is measured first, and the machine is then scored against their consensus. Until that runs, the figure stays out of the deliverable, and the deliverable says it is deferred and why.
+- **Passes:** agreement is 80% or above on the full sample (at least 50 named answers for recommendation labels). The label can be reported, with the Human Audit cited.
+- **Fails:** agreement is below 80%. The label is not reported. It is deferred to a two-reader baseline: two people label the same sample independently, their agreement with each other is measured first, and the machine is then scored against their consensus. Until that runs, the figure stays out of the deliverable, and the deliverable says it is deferred and why.
+- **Too small to judge:** if the sample falls short of the sizes above, the result is recorded but no pass or fail is declared, and the label is not reported.
 
-The bar is a straight cut: 80% or above passes, below 80% fails. Thirty answers is a floor, not a precision target.
+Below about 50 items, one or two disagreements swing agreement by several points, which is why the sample sizes are part of the bar.
 
 ## Reference result
 
-Zoom case, Oct 2026 (enterprise SaaS), one reader, 30 answers:
+Zoom case, Oct 2026 (enterprise SaaS), one reader, 30 answers drawn before this protocol required a split sample:
 
-| Label | Agreement | Outcome |
+| Label | Agreement | Outcome at the time |
 |---|---|---|
 | Named or not | 30 of 30 (100%) | Reported |
-| Recommended, yes/no | 25 of 30 (83%) | Passes |
-| Four-level recommendation | 21 of 30 (70%) | Failed |
+| Recommended, yes/no | 25 of 30 (83%) | Passed (would be too small to judge now) |
+| Four-level recommendation | 21 of 30 (70%) | Failed (would be too small to judge now) |
 
-Consequence: the deliverable reported naming and citation, which the instrument measured reliably, and deferred recommendation rate to a two-reader baseline at Day 30.
+Consequence: the deliverable reported naming rates and deferred recommendation rate (both labels) to a two-reader baseline at Day 30. Citation figures were reported on the strength of the citation-class protocol, not this audit, which did not test them. 
 
 ## What it does not claim
 
@@ -59,9 +65,9 @@ Store this with the run, not in this repo:
 
 - Reader name and date.
 - Run identifier and prompt-set hash.
-- How the 30 were drawn, and the answer identifiers.
-- Agreement per label, as counts and percent.
+- How each part of the sample was drawn, and the answer identifiers.
+- Per label: agreement as counts and percent, its 95% interval, and Cohen's kappa.
 - Every disagreement with its note.
 - The decision per label: reported, or deferred with the reason.
 
-The deliverable cites the Human Audit by reference ("Human Audit, 30 answers, one reader, [date]") wherever a rate built on a checked label appears.
+The deliverable cites the Human Audit by reference ("Human Audit, [n] answers, one reader, [date]") wherever a rate built on a checked label appears.

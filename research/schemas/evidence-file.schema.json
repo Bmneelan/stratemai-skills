@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://stratemai.com/schemas/evidence-file/v0.2.json",
+  "$id": "https://stratemai.com/schemas/evidence-file/v0.3.json",
   "title": "Wayfinder evidence file",
   "description": "One research run's evidence, shared by research-corpus and answer-engine-check. Evidence files are client data: they are stored with the run and never committed to stratemai-skills.",
   "type": "object",
@@ -13,7 +13,7 @@
   "additionalProperties": false,
   "properties": {
     "schema_version": {
-      "const": "0.2"
+      "const": "0.3"
     },
     "run": {
       "description": "Run metadata.",
@@ -106,7 +106,7 @@
           }
         },
         "failures": {
-          "description": "Errors recorded as errors, never as absence. A failed call is not a 'not named' answer.",
+          "description": "Errors, timeouts and empty answers, recorded as failures and left out of denominators. An answer given without searching is not a failure: it stays in the data with searched=false.",
           "type": "array",
           "items": {
             "type": "object",
@@ -137,7 +137,6 @@
                   "timeout",
                   "empty",
                   "refused",
-                  "no_search",
                   "other"
                 ]
               },
@@ -396,10 +395,14 @@
             ]
           },
           "recommendation_level": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "enum": [
+              "top_pick",
+              "recommended_among_others",
+              "mentioned_not_recommended",
+              "not_applicable",
+              null
+            ],
+            "description": "not_applicable when the subject is not named."
           },
           "claims": {
             "description": "Claims matched against the truth sheet.",
@@ -493,15 +496,15 @@
         "required": [
           "id",
           "statement",
-          "numerator",
-          "denominator",
           "surface",
+          "dates",
           "level",
           "origin",
           "kind",
           "grade",
           "lane",
-          "recomputed"
+          "recomputed",
+          "result"
         ],
         "properties": {
           "id": {
@@ -518,22 +521,40 @@
             "type": "integer",
             "minimum": 1
           },
+          "value": {
+            "type": "number",
+            "description": "For figures that are not a count over a count: a modeled volume, a reported growth rate, a difference in points, a variance share."
+          },
+          "unit": {
+            "type": "string",
+            "description": "Unit for value, e.g. percent, points, prompts, USD."
+          },
           "surface": {
             "type": "string"
           },
-          "dates": {
+          "prompt_set_hash": {
             "type": "string"
+          },
+          "dates": {
+            "type": "string",
+            "description": "Required. Collection dates, or the date of the source."
           },
           "level": {
             "enum": [
               "answer",
               "citation",
               "page",
+              "prompt",
               "other"
             ]
           },
           "interval": {
             "type": "object",
+            "required": [
+              "low",
+              "high",
+              "method"
+            ],
             "properties": {
               "low": {
                 "type": "number"
@@ -542,7 +563,17 @@
                 "type": "number"
               },
               "method": {
-                "type": "string"
+                "enum": [
+                  "wilson",
+                  "prompt_bootstrap",
+                  "wilson_effective_n",
+                  "t_interval",
+                  "paired_permutation",
+                  "other"
+                ]
+              },
+              "level": {
+                "const": 0.95
               }
             }
           },
@@ -581,6 +612,7 @@
           "lane": {
             "enum": [
               "custom_research",
+              "stratemai_research",
               "client_public_sources",
               "client_reported",
               "third_party_tool",
@@ -622,99 +654,147 @@
                 "type": "string"
               }
             }
+          },
+          "result": {
+            "enum": [
+              "established",
+              "inconclusive_not_significant",
+              "too_small_to_judge",
+              "descriptive"
+            ],
+            "description": "descriptive for plain rates; the other three for tests and audits. Only established or descriptive figures may reach a client."
           }
         },
-        "oneOf": [
+        "allOf": [
           {
-            "properties": {
-              "origin": {
-                "const": "stratemai"
+            "oneOf": [
+              {
+                "properties": {
+                  "origin": {
+                    "const": "stratemai"
+                  },
+                  "kind": {
+                    "const": "observed"
+                  },
+                  "lane": {
+                    "const": "custom_research"
+                  }
+                }
               },
-              "kind": {
-                "const": "observed"
+              {
+                "properties": {
+                  "origin": {
+                    "const": "stratemai"
+                  },
+                  "kind": {
+                    "const": "finding"
+                  },
+                  "lane": {
+                    "const": "stratemai_research"
+                  }
+                }
               },
-              "lane": {
-                "const": "custom_research"
+              {
+                "properties": {
+                  "origin": {
+                    "const": "client"
+                  },
+                  "kind": {
+                    "const": "observed"
+                  },
+                  "lane": {
+                    "const": "client_public_sources"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "origin": {
+                    "const": "client"
+                  },
+                  "kind": {
+                    "const": "stated"
+                  },
+                  "lane": {
+                    "const": "client_reported"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "origin": {
+                    "const": "vendor"
+                  },
+                  "kind": {
+                    "const": "modeled"
+                  },
+                  "lane": {
+                    "const": "third_party_tool"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "origin": {
+                    "const": "vendor"
+                  },
+                  "kind": {
+                    "const": "observed"
+                  },
+                  "lane": {
+                    "const": "third_party_tool"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "origin": {
+                    "const": "independent"
+                  },
+                  "kind": {
+                    "const": "finding"
+                  },
+                  "lane": {
+                    "const": "published_research"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "origin": {
+                    "const": "public"
+                  },
+                  "kind": {
+                    "const": "opinion"
+                  },
+                  "lane": {
+                    "const": "public_commentary"
+                  }
+                }
               }
-            }
+            ]
           },
           {
-            "properties": {
-              "origin": {
-                "const": "client"
+            "oneOf": [
+              {
+                "required": [
+                  "numerator",
+                  "denominator",
+                  "interval"
+                ]
               },
-              "kind": {
-                "const": "observed"
-              },
-              "lane": {
-                "const": "client_public_sources"
+              {
+                "required": [
+                  "value",
+                  "unit"
+                ],
+                "not": {
+                  "required": [
+                    "numerator"
+                  ]
+                }
               }
-            }
-          },
-          {
-            "properties": {
-              "origin": {
-                "const": "client"
-              },
-              "kind": {
-                "const": "stated"
-              },
-              "lane": {
-                "const": "client_reported"
-              }
-            }
-          },
-          {
-            "properties": {
-              "origin": {
-                "const": "vendor"
-              },
-              "kind": {
-                "const": "modeled"
-              },
-              "lane": {
-                "const": "third_party_tool"
-              }
-            }
-          },
-          {
-            "properties": {
-              "origin": {
-                "const": "vendor"
-              },
-              "kind": {
-                "const": "observed"
-              },
-              "lane": {
-                "const": "third_party_tool"
-              }
-            }
-          },
-          {
-            "properties": {
-              "origin": {
-                "const": "independent"
-              },
-              "kind": {
-                "const": "finding"
-              },
-              "lane": {
-                "const": "published_research"
-              }
-            }
-          },
-          {
-            "properties": {
-              "origin": {
-                "const": "public"
-              },
-              "kind": {
-                "const": "opinion"
-              },
-              "lane": {
-                "const": "public_commentary"
-              }
-            }
+            ]
           }
         ]
       }

@@ -23,13 +23,13 @@ On any run that stores citations with URLs. It is most useful on answers that na
 | Client-owned | Any domain the client owns, including help centres, docs, blogs and community sites |
 | Other | Everything that does not fit above: news, encyclopaedias, government, unrelated vendors |
 
-Open item: a sixth class for pages cited as a source about other companies (a vendor's page used by the engine to describe a different company). It is defined here as a candidate and is not yet in code. Until it is, these pages fall into whichever owner class their domain matches, and that limitation is stated when it could matter.
+Open item: a sixth class for pages cited as a source about other companies (a vendor's page used by the engine to describe a different company). It is defined here as a candidate and reserved in the evidence file schema (`source_about_others`), but no collector assigns it yet. Until it is, these pages fall into whichever owner class their domain matches, and that limitation is stated when it could matter.
 
 ## Protocol
 
 1. Extract every cited URL from every answer in scope. Keep the answer identifier with each citation.
 2. **Pass 1, known domains.** Classify by a domain list maintained per category: client domains, named competitors' domains, known review and listicle sites, Reddit. Everything else is "unknown."
-3. **Pass 2, unknown domains.** Classify the unknowns as a separate, recorded pass. A person (or code a person has checked) looks at each unknown domain and assigns a class. Record who did it, the date and the decision per domain. This pass exists because unknown domains in a category are often small competitors, and leaving them unclassified understates the competitor share.
+3. **Pass 2, unknown domains.** Classify the unknowns as a separate, recorded pass. A person (or code a person has checked) looks at each unknown domain and assigns a class. Record who did it, the date and the decision per domain. When the before and after figures differ by more than a few points, have a second person classify a sample of the Pass 2 domains independently and record their agreement, since the after figure rests on those calls. This pass exists because unknown domains in a category are often small competitors, and leaving them unclassified understates the competitor share.
 4. Always report both figures, before and after Pass 2. The before figure uses only domains listed up front, so it is a floor nobody can dispute. The after figure depends on a person's calls about unknown domains. Showing both lets the reader see how much of the result rests on that judgment, and the gap itself shows how much of the source base sits on companies nobody listed up front.
 5. Count at two levels, and never mix them under one definition:
    - **Share of answers citing a class:** of N answers, how many cite at least one page in the class.
@@ -43,7 +43,7 @@ There is no agreement threshold for the classes themselves, because class assign
 
 ## Reference result
 
-Zoom case, Oct 2026 (enterprise SaaS), 145 unbranded answers that AI Receptionist answers that named competitors and not Zoom, 810 citations: competitor-owned 53% before the unknown-domain pass, 71% after. Reviews and listicles 5%, Reddit 1%, Zoom-owned 0%. Most cited: Smith.ai, RingCentral and Goodcall receptionist pages.
+Zoom case, Oct 2026 (enterprise SaaS): 145 unbranded AI Receptionist answers that named competitors and not Zoom, holding 810 citations. Share of citations that were competitor-owned: 53% before the unknown-domain pass, 71% after. Reviews and listicles 5%, Reddit 1%, Zoom-owned 0% (all share of citations). Most cited: Smith.ai's receptionist pricing page, RingCentral's receptionist pricing page and Goodcall's home page. The Pass 2 calls were one person's and were not checked by a second.
 
 ## What it does not claim
 
