@@ -22,7 +22,7 @@ Run it once per labelling scheme per study, before any rate is reported. Run it 
 3. The reader labels each answer on every label in use. At minimum:
    - **Named:** is the subject named, yes or no.
    - **Recommended:** does the answer recommend the subject, yes or no.
-   - **Recommendation level:** the four-level label (for example top pick, recommended among others, mentioned without recommendation, discouraged). Use the same definitions the code uses, written down before reading.
+   - **Recommendation level:** the four-level label: top pick; recommended among others; mentioned, not recommended; N/A (subject not named, so no level applies). Use the same definitions the code uses, written down before reading.
 4. Compare reader and machine label by label. Score agreement separately for each label. Never pool labels into one agreement figure, because a pooled figure hides the label that fails.
 5. Write down every disagreement with a one-line note on why. The notes are what fixes the labeller.
 
