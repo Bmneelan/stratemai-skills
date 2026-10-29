@@ -47,4 +47,4 @@ An engine error, a timeout or an answer without search is recorded as what it is
 - [ ] Truth sheet written for claim matching, each fact checked against a primary source
 - [ ] Baseline product line chosen and on the same surfaces
 - [ ] Domain list for citation classes dated
-- [ ] Hand-check sample plan written
+- [ ] Human Audit sample plan written

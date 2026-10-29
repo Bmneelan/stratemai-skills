@@ -1,9 +1,9 @@
 ---
-name: answer-reliability-handcheck
-description: Hand-check machine labels on AI answers before reporting any rate built on them. Use after a research run has labelled answers in code (named or not, recommended or not, recommendation strength) and before any naming rate, recommendation rate or similar figure goes into a deck, readout or client message. Also use when someone asks how reliable a label is, whether a recommendation rate can be reported, or when a new label or classifier is introduced.
+name: human-audit
+description: Human Audit: a person reads a sample of AI answers to check the machine labels on AI answers before reporting any rate built on them. Use after a research run has labelled answers in code (named or not, recommended or not, recommendation strength) and before any naming rate, recommendation rate or similar figure goes into a deck, readout or client message. Also use when someone asks how reliable a label is, whether a recommendation rate can be reported, or when a new label or classifier is introduced.
 ---
 
-# Answer reliability hand-check
+# Human Audit
 
 ## What it measures
 
@@ -30,7 +30,7 @@ Run it once per labelling scheme per study, before any rate is reported. Run it 
 
 80% agreement per label.
 
-- A label at or above 80% can be reported, with the hand-check cited.
+- A label at or above 80% can be reported, with the Human Audit cited.
 - A label below 80% is not reported. It is deferred to a two-reader baseline: two people label the same sample independently, their agreement with each other is measured first, and the machine is then scored against their consensus. Until that runs, the figure stays out of the deliverable, and the deliverable says it is deferred and why.
 
 Thirty answers is a floor, not a precision target. At 30, one or two disagreements move agreement by several points, so treat results near the bar (77% to 83%) as provisional and say so.
@@ -64,4 +64,4 @@ Store this with the run, not in this repo:
 - Every disagreement with its note.
 - The decision per label: reported, or deferred with the reason.
 
-The deliverable cites the hand-check by reference ("hand-checked, 30 answers, one reader, [date]") wherever a rate built on a checked label appears.
+The deliverable cites the Human Audit by reference ("Human Audit, 30 answers, one reader, [date]") wherever a rate built on a checked label appears.

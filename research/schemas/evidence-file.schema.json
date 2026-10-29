@@ -199,7 +199,7 @@
               "id": { "type": "string", "description": "Script name and version, or the person's name." }
             }
           },
-          "handcheck_ref": { "type": ["string", "null"], "description": "Identifier of the hand-check that validates this label scheme." }
+          "human_audit_ref": { "type": ["string", "null"], "description": "Identifier of the Human Audit that validates this label scheme." }
         }
       }
     },

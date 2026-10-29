@@ -32,7 +32,7 @@ Location: a path means this repo. `repo <name>` means a separate GitHub repo und
 | Answer Engine Check | partial (Group 1) | repo `answer-engine-check` | Parked; Group 2 prompt written. Stays in its own repo |
 | Rubric-stability harness | built | repo `rubric-stability` | To fold into research-corpus |
 | Warm Path Overlay | built | repo `warm-path` | LinkedIn export against prospect lists |
-| Answer reliability hand-check (30 answers, per-label agreement, 80% bar) | draft | `instruments/answer-reliability-handcheck/` | Ported from the Oct 2026 panel pack |
+| Human Audit (30 answers, per-label agreement, 80% bar) | draft | `instruments/human-audit/` | Ported from the Oct 2026 panel pack |
 | Reference denominators by surface | draft | `instruments/reference-denominators/` | |
 | Rendering check (raw vs rendered word count) | draft | `instruments/rendering-check/` | Reference: 56 of 147 |
 | Citation classes | draft (skill); partial (code) | `instruments/citation-classes/`; code in `analyze.mjs` | "Cited as a source about others" class not yet in code |
@@ -52,7 +52,7 @@ Location: a path means this repo. `repo <name>` means a separate GitHub repo und
 | Evidence file schema v0.1 | draft | `research/schemas/evidence-file.schema.json` | Shared by research-corpus and answer-engine-check; neither emits it yet |
 | Tier system 0 to 3 with `decision` flag and `--trend` | built | repo `research-corpus`, commit edf58b9 | |
 | Source registry with lane field (measured / vendor_modeled / reported) | queued | `claude/machinery-registry-draft.md` | Machinery item 1; lane names should match `research/evidence-lanes/` |
-| Governance update (evidence rules, hand-check, DECISIONS.md, lessons.md, no-AI-attribution) | queued | `claude/machinery-queue.md` | Machinery item 2; partly covered by this repo, to redraft |
+| Governance update (evidence rules, Human Audit, DECISIONS.md, lessons.md, no-AI-attribution) | queued | `claude/machinery-queue.md` | Machinery item 2; partly covered by this repo, to redraft |
 | Research agent charter | spec | `claude/research-agent-charter.md` | |
 | Research OS | idea | memory | Repeated deep research as a system |
 | `credit-check.mjs`, `serp.mjs`, `serp-report.mjs` | built | repo `research-corpus` | |
