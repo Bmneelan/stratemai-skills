@@ -1,0 +1,267 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stratemai.com/schemas/evidence-file/v0.1.json",
+  "title": "Wayfinder evidence file",
+  "description": "One research run's evidence, shared by research-corpus and answer-engine-check. Evidence files are client data: they are stored with the run and never committed to stratemai-skills.",
+  "type": "object",
+  "required": ["schema_version", "run", "probe_responses", "labels"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "0.1" },
+
+    "run": {
+      "description": "Run metadata.",
+      "type": "object",
+      "required": ["run_id", "subject", "frame_id", "prompt_set_hash", "dates", "collectors", "failures"],
+      "additionalProperties": false,
+      "properties": {
+        "run_id": { "type": "string" },
+        "subject": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "domains": { "type": "array", "items": { "type": "string" } },
+            "product_lines": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "frame_id": { "type": "string", "description": "Research frame identifier in research-corpus." },
+        "prompt_set_hash": { "type": "string", "description": "Hash of the frozen prompt set, recorded before the first pull." },
+        "dates": {
+          "type": "object",
+          "required": ["start", "end"],
+          "properties": {
+            "start": { "type": "string", "format": "date" },
+            "end": { "type": "string", "format": "date" }
+          }
+        },
+        "locale": { "type": "string", "description": "Market and device, e.g. US desktop." },
+        "collectors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "version"],
+            "properties": {
+              "name": { "type": "string" },
+              "version": { "type": "string" },
+              "commit": { "type": "string" }
+            }
+          }
+        },
+        "failures": {
+          "description": "Errors recorded as errors, never as absence. A failed call is not a 'not named' answer.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["prompt_id", "engine", "date", "kind"],
+            "properties": {
+              "prompt_id": { "type": "string" },
+              "engine": { "type": "string" },
+              "date": { "type": "string", "format": "date" },
+              "rep": { "type": "integer", "minimum": 1 },
+              "kind": { "enum": ["error", "timeout", "empty", "refused", "no_search", "other"] },
+              "detail": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "corpus": {
+      "description": "The subject's own pages and how they link.",
+      "type": "object",
+      "properties": {
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url", "fetched"],
+            "properties": {
+              "url": { "type": "string", "format": "uri" },
+              "fetched": { "type": "string", "format": "date-time" },
+              "status": { "type": "integer" },
+              "title": { "type": "string" },
+              "raw_word_count": { "type": "integer", "minimum": 0 },
+              "rendered_word_count": { "type": "integer", "minimum": 0 },
+              "late_share": { "type": "number", "minimum": 0, "maximum": 1, "description": "From the rendering check." }
+            }
+          }
+        },
+        "link_graph": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["from", "to"],
+            "properties": {
+              "from": { "type": "string", "format": "uri" },
+              "to": { "type": "string", "format": "uri" },
+              "anchor": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "structured_data": {
+      "description": "Schema.org and similar markup found and expected-but-absent, per page.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "found": { "type": "array", "items": { "type": "string" } },
+          "absent": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+
+    "external_knowledge": {
+      "description": "Presence of the subject in external knowledge sources (Wikipedia, Wikidata, knowledge panels, review sites).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "present", "checked"],
+        "properties": {
+          "source": { "type": "string" },
+          "present": { "type": "boolean" },
+          "url": { "type": "string", "format": "uri" },
+          "checked": { "type": "string", "format": "date" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+
+    "probe_responses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["response_id", "prompt_id", "engine", "model", "date", "rep", "text", "citations"],
+        "properties": {
+          "response_id": { "type": "string" },
+          "prompt_id": { "type": "string" },
+          "scenario": { "type": "string" },
+          "branded": { "type": "boolean" },
+          "engine": { "type": "string", "description": "e.g. chatgpt, gemini, perplexity, google_aio." },
+          "model": { "type": "string" },
+          "date": { "type": "string", "format": "date" },
+          "rep": { "type": "integer", "minimum": 1 },
+          "searched": { "type": ["boolean", "null"], "description": "Whether the engine searched. Null when the surface does not say." },
+          "text": { "type": "string", "description": "Verbatim answer text." },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["url", "class"],
+              "properties": {
+                "url": { "type": "string", "format": "uri" },
+                "domain": { "type": "string" },
+                "position": { "type": "integer", "minimum": 1 },
+                "class": {
+                  "enum": ["competitor_owned", "review_or_listicle", "reddit", "client_owned", "other", "unknown", "source_about_others"]
+                },
+                "class_pass": { "enum": ["known_domain", "unknown_domain_pass"], "description": "Which citation-classes pass assigned the class." }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["response_id", "labeller"],
+        "properties": {
+          "response_id": { "type": "string" },
+          "named": { "type": "boolean" },
+          "recommended": { "type": ["boolean", "null"] },
+          "recommendation_level": { "type": ["string", "null"] },
+          "claims": {
+            "description": "Claims matched against the truth sheet.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["claim_id", "result"],
+              "properties": {
+                "claim_id": { "type": "string" },
+                "result": { "enum": ["matches", "contradicts", "absent"] },
+                "evidence_span": { "type": "string" }
+              }
+            }
+          },
+          "labeller": {
+            "type": "object",
+            "required": ["kind", "id"],
+            "properties": {
+              "kind": { "enum": ["code", "person"] },
+              "id": { "type": "string", "description": "Script name and version, or the person's name." }
+            }
+          },
+          "handcheck_ref": { "type": ["string", "null"], "description": "Identifier of the hand-check that validates this label scheme." }
+        }
+      }
+    },
+
+    "truth_sheet": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "statement", "source"],
+        "properties": {
+          "claim_id": { "type": "string" },
+          "statement": { "type": "string" },
+          "source": { "type": "string" },
+          "verified_by": { "type": "string" },
+          "verified_on": { "type": "string", "format": "date" }
+        }
+      }
+    },
+
+    "derived_numbers": {
+      "description": "Every number computed from this file. Each carries a lane.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "statement", "numerator", "denominator", "surface", "level", "lane", "recomputed"],
+        "properties": {
+          "id": { "type": "string" },
+          "statement": { "type": "string" },
+          "numerator": { "type": "integer", "minimum": 0 },
+          "denominator": { "type": "integer", "minimum": 1 },
+          "surface": { "type": "string" },
+          "dates": { "type": "string" },
+          "level": { "enum": ["answer", "citation", "page", "other"] },
+          "interval": {
+            "type": "object",
+            "properties": {
+              "low": { "type": "number" },
+              "high": { "type": "number" },
+              "method": { "type": "string" }
+            }
+          },
+          "lane": {
+            "enum": ["custom_research", "client_public_sources", "client_reported", "third_party_tool", "published_research"]
+          },
+          "recomputed": {
+            "type": "object",
+            "required": ["status"],
+            "properties": {
+              "status": { "enum": ["yes", "not_yet"] },
+              "by": { "type": "string", "description": "Code that recomputed it, separate from the collector." },
+              "on": { "type": "string", "format": "date" }
+            }
+          },
+          "retired": {
+            "type": "object",
+            "properties": {
+              "on": { "type": "string", "format": "date" },
+              "reason": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
