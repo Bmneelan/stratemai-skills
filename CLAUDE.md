@@ -26,7 +26,8 @@ Method lives here; data lives with whoever owns it. Raw runs, ledgers and case d
 
 - "Cite," never "retrieve," unless the Closed Book Live API Model has run.
 - "Working explanation" or "leading hypothesis," never "cause."
-- Every number carries surface, sample and dates, and one evidence lane.
+- Every number carries surface, sample and dates, plus origin, kind and grade. Its lane is looked up from origin and kind (`research/evidence-lanes/`), never chosen by hand.
+- Codes never change once data uses them; retire and point to a successor instead. Labels for readers can be reworded freely.
 - No em dashes in deliverable text.
 
 ## Repo conventions

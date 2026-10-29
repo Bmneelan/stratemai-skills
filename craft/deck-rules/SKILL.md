@@ -22,6 +22,8 @@ Evidence lanes carry plain labels on slides:
 | Outcome | Data result |
 | Outside-in snapshot | One-week snapshot of public AI answers; no [client] internal data (adjust the duration) |
 
+The full lane list, including Public commentary, and how each lane is looked up from a number's origin and kind, is in `research/evidence-lanes/`. Never assign a lane by feel.
+
 Define each product the first time it appears ("[Product] ([what it is in plain words])"), then use the short name. Use the client's own names for their teams and departments once you know them.
 
 Why: the panel spends its attention on the argument, not on decoding your vocabulary. Jargon that the audience doesn't use reads as distance.
