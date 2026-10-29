@@ -30,7 +30,7 @@ Open item: a sixth class for pages cited as a source about other companies (a ve
 1. Extract every cited URL from every answer in scope. Keep the answer identifier with each citation.
 2. **Pass 1, known domains.** Classify by a domain list maintained per category: client domains, named competitors' domains, known review and listicle sites, Reddit. Everything else is "unknown."
 3. **Pass 2, unknown domains.** Classify the unknowns as a separate, recorded pass. A person (or code a person has checked) looks at each unknown domain and assigns a class. Record who did it, the date and the decision per domain. This pass exists because unknown domains in a category are often small competitors, and leaving them unclassified understates the competitor share.
-4. Report both figures, before and after Pass 2, when they differ materially (more than about five points). The gap itself is information: it shows how much of the source base sits on companies nobody listed up front.
+4. Always report both figures, before and after Pass 2. The before figure uses only domains listed up front, so it is a floor nobody can dispute. The after figure depends on a person's calls about unknown domains. Showing both lets the reader see how much of the result rests on that judgment, and the gap itself shows how much of the source base sits on companies nobody listed up front.
 5. Count at two levels, and never mix them under one definition:
    - **Share of answers citing a class:** of N answers, how many cite at least one page in the class.
    - **Share of citations in a class:** of M citations, how many are in the class.
