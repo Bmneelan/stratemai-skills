@@ -33,7 +33,7 @@ Run it once per labelling scheme per study, before any rate is reported. Run it 
 - A label at or above 80% can be reported, with the Human Audit cited.
 - A label below 80% is not reported. It is deferred to a two-reader baseline: two people label the same sample independently, their agreement with each other is measured first, and the machine is then scored against their consensus. Until that runs, the figure stays out of the deliverable, and the deliverable says it is deferred and why.
 
-Thirty answers is a floor, not a precision target. At 30, one or two disagreements move agreement by several points, so treat results near the bar (77% to 83%) as provisional and say so.
+The bar is a straight cut: 80% or above passes, below 80% fails. Thirty answers is a floor, not a precision target.
 
 ## Reference result
 
@@ -42,7 +42,7 @@ Zoom case, Oct 2026 (enterprise SaaS), one reader, 30 answers:
 | Label | Agreement | Outcome |
 |---|---|---|
 | Named or not | 30 of 30 (100%) | Reported |
-| Recommended, yes/no | 25 of 30 (83%) | Passes, near the bar |
+| Recommended, yes/no | 25 of 30 (83%) | Passes |
 | Four-level recommendation | 21 of 30 (70%) | Failed |
 
 Consequence: the deliverable reported naming and citation, which the instrument measured reliably, and deferred recommendation rate to a two-reader baseline at Day 30.
