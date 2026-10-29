@@ -47,7 +47,14 @@ Do not promise movement inside 30 days. Engines adopt page changes on their own 
 
 ## Pass bar
 
-Stage 1 needs a pre-registered threshold before it runs (for example, a rise of at least 15 points in naming rate with non-overlapping intervals). Set it in the run's design note, not after seeing the result.
+The test answers one question: is there a real difference between the arms, or not? There is no fixed size of jump to hit.
+
+1. Compute the difference between arms (open-book rate minus closed-book rate) for each measure: naming, and claims matched.
+2. Put a 95% interval on that difference by resampling prompts, not individual answers (a bootstrap over prompts, 1,000 or more draws, fixed seed). Prompts are the unit because repeated runs of one prompt are not independent; treating every answer as separate overstates certainty.
+3. **The result counts when the interval excludes zero.** Report the difference with its interval ("open book named the client 14 points more often, 95% interval 6 to 22").
+4. **When the interval includes zero, report no number.** Say the test did not show a difference at this volume. That is a finding in itself, and it points to a larger run or a different explanation, not to a smaller claim.
+
+Write the measures and the method in the run's design note before the first call, so nothing is chosen after seeing the result.
 
 ## Language rule
 

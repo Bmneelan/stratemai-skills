@@ -2,7 +2,7 @@
 
 Applies to studies that measure whether and how AI answers name a company or product across a frozen prompt set.
 
-From calibration runs in Sep 2026: two unrelated categories (a local HVAC trade and growth-marketing help), 60 Perplexity calls, 10 phrasings by 3 repetitions each, plus a resampling validation (1,000 draws, fixed seed).
+These rules come from early calibration runs and are revised as volume grows. Calibration, Sep 2026: two unrelated categories (a local HVAC trade and growth-marketing help), 60 Perplexity calls, 10 phrasings by 3 repetitions each, plus a resampling validation (1,000 draws, fixed seed).
 
 ## 1. Phrasing drives most of the variation
 
