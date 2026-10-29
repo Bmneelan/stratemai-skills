@@ -1,0 +1,15 @@
+# Keys
+.env
+.env.*
+
+# Client data never lives here
+evidence/
+*.evidence.json
+runs/
+data/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
