@@ -1,6 +1,6 @@
 ---
 name: human-audit
-description: Human Audit: a person reads a sample of AI answers to check the machine labels on AI answers before reporting any rate built on them. Use after a research run has labelled answers in code (named or not, recommended or not, recommendation strength) and before any naming rate, recommendation rate or similar figure goes into a deck, readout or client message. Also use when someone asks how reliable a label is, whether a recommendation rate can be reported, or when a new label or classifier is introduced.
+description: Run a Human Audit, where a person reads a sample of AI answers to check the labels code assigned, before reporting any rate built on those labels. Use after a research run has labelled answers in code (named or not, recommended or not, recommendation strength) and before any naming rate, recommendation rate or similar figure goes into a deck, readout or client message. Also use when someone asks how reliable a label is, whether a recommendation rate can be reported, or when a new label or classifier is introduced.
 ---
 
 # Human Audit
