@@ -24,7 +24,7 @@ Method lives here; data lives with whoever owns it. Raw runs, ledgers and case d
 
 ## Language rules that apply to every skill
 
-- "Cite," never "retrieve," unless the offline sensitivity test has run.
+- "Cite," never "retrieve," unless the Closed Book Live API Model has run.
 - "Working explanation" or "leading hypothesis," never "cause."
 - Every number carries surface, sample and dates, and one evidence lane.
 - No em dashes in deliverable text.

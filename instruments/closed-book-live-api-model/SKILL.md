@@ -1,9 +1,9 @@
 ---
-name: offline-sensitivity-test
-description: Spec for a test that separates two failure points in AI answers, the engine never retrieving a fact versus retrieving it and not using it, before any claim that fixing source pages will change answers. Use when a diagnosis says a client is missing from answers because of what its pages say, when designing a fix-and-measure test, or when anyone wants to use the word "retrieve" or "cause" about an engine's behaviour. Status is spec; it has not been run.
+name: closed-book-live-api-model
+description: Closed Book Live API Model. Spec for a test that separates two failure points in AI answers, the engine never retrieving a fact versus retrieving it and not using it, before any claim that fixing source pages will change answers. Use when a diagnosis says a client is missing from answers because of what its pages say, when designing a fix-and-measure test, or when anyone wants to use the word "retrieve" or "cause" about an engine's behaviour. Status is spec; it has not been run.
 ---
 
-# Offline sensitivity test
+# Closed Book Live API Model
 
 Status: spec. Designed in Oct 2026; not yet run. Treat the protocol as the plan to follow, and update this file with what the first run teaches.
 
@@ -22,17 +22,19 @@ Before telling a client that page changes will move their visibility, and before
 
 ## Design
 
-### Stage 1, offline
+### Stage 1, closed book vs open book on the live API
 
 1. Take the frozen prompt set for the scenario.
 2. Write a truth sheet: the verified facts the answer should contain (for example, that a product is available standalone, its price, what it works with). Each fact is checked by hand against a primary source.
-3. Run each prompt through the model by API with search off, in two arms:
-   - **Without facts:** the prompt alone.
-   - **With facts:** the prompt plus the truth sheet supplied as context.
+3. Run each prompt through the live model by API with web search off, in two arms:
+   - **Closed book:** the prompt alone. The model answers from what it already knows.
+   - **Open book:** the prompt plus the truth sheet supplied as context.
+
+   Search stays off in both arms so the only difference between them is the facts you supplied.
 4. Use more repetitions than the live study (at least 7 per prompt per arm, and 8 if the test measures citations), because the arms are compared directly and live designs with 2 runs a day are too noisy for small effects.
 5. Score both arms in code on the same labels the live study uses (named, claims matched against the truth sheet), with the Human Audit applied.
 
-Reading: if naming and claim accuracy rise materially in the "with facts" arm, the model uses the facts when it has them, which supports "not retrieved" as the failure point. If they do not rise, "retrieved, not used" (or a naming problem) is more likely, and page changes alone are a weak bet.
+Reading: if naming and claim accuracy rise materially in the open-book arm, the model uses the facts when it has them, which supports "not retrieved" as the failure point. If they do not rise, "retrieved, not used" (or a naming problem) is more likely, and page changes alone are a weak bet.
 
 ### Stage 2, live before-and-after
 
@@ -56,7 +58,7 @@ This is the rule the test exists to enforce, and it applies everywhere in the wo
 
 ## What it does not claim
 
-- Stage 1 tests a model by API with search off. It shows what the model does with the facts, not what the live product does with the web.
+- Stage 1 tests the live model by API with search off, not the consumer product. It shows what the model does with the facts, not what the live product does with the web.
 - Stage 2 shows association with the page change against a baseline, not proof that the change alone moved answers.
 - A null result in Stage 2 inside a short window is not evidence the pages do not matter.
 

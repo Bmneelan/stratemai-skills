@@ -36,7 +36,7 @@ Location: a path means this repo. `repo <name>` means a separate GitHub repo und
 | Reference denominators by surface | draft | `instruments/reference-denominators/` | |
 | Rendering check (raw vs rendered word count) | draft | `instruments/rendering-check/` | Reference: 56 of 147 |
 | Citation classes | draft (skill); partial (code) | `instruments/citation-classes/`; code in `analyze.mjs` | "Cited as a source about others" class not yet in code |
-| Offline sensitivity test | spec | `instruments/offline-sensitivity-test/` | Not yet run |
+| Closed Book Live API Model (closed book vs open book, then live before-and-after) | spec | `instruments/closed-book-live-api-model/` | Not yet run |
 | Transcript fidelity | draft (from a pilot) | `instruments/transcript-fidelity/` | Pilot write-up: `claude/transcript-fidelity-pilot-zoomtopia-keynote.md` |
 | Dual note-taker entity check | idea, first tried | Zoomtopia | Candidate to fold into transcript fidelity |
 | Zoommate probe | run once | `claude/zoommate-probe-2026-10-20.md` | |

@@ -8,6 +8,6 @@ Governance pointer. The research-run skill itself stays in `research-corpus` unt
 | `../evidence-lanes/SKILL.md` | Lane labels, recomputation and the retired-numbers rule |
 | `../schemas/evidence-file.schema.json` | The evidence file shared by `research-corpus` and `answer-engine-check` |
 
-Instruments a run calls on are under `instruments/`: the Human Audit before any rate is reported, citation classes, reference denominators, the rendering check, and the offline sensitivity test before any causal language.
+Instruments a run calls on are under `instruments/`: the Human Audit before any rate is reported, citation classes, reference denominators, the rendering check, and the Closed Book Live API Model before any causal language.
 
 Collectors are not here. Phase 1 collectors wait on two decisions: whether the harness replaces `model_probe.py`, and which probe set to use.

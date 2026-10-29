@@ -32,7 +32,7 @@ Exact-label matching fails when engines describe the same concept in different w
 
 Live tracking at 2 runs a day is enough to see direction, not small changes.
 
-**Rule:** state "direction, not a score" on live tracking figures, and use more repetitions in any offline run where two arms are compared directly.
+**Rule:** state "direction, not a score" on live tracking figures, and use more repetitions in any Closed Book Live API Model run, where two arms are compared directly.
 
 ## 6. Failures are recorded as failures
 

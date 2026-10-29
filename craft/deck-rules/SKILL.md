@@ -71,7 +71,7 @@ The diagnostics section says, for each gap, what is a search problem and what is
 
 ## 8. Causal language
 
-"Cite," never "retrieve," unless the offline sensitivity test has run. "Working explanation" or "leading hypothesis," never "cause." Payoffs need a number or a reason a CFO would accept.
+"Cite," never "retrieve," unless the Closed Book Live API Model has run. "Working explanation" or "leading hypothesis," never "cause." Payoffs need a number or a reason a CFO would accept.
 
 ## Review pass
 
