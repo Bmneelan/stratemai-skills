@@ -29,7 +29,7 @@ Before telling a client that page changes will move their visibility, and before
 3. Run each prompt through the model by API with search off, in two arms:
    - **Without facts:** the prompt alone.
    - **With facts:** the prompt plus the truth sheet supplied as context.
-4. Use more repetitions than the live study (at least 7 per prompt per arm), because the arms are compared directly and live designs with 2 runs a day are too noisy for small effects.
+4. Use more repetitions than the live study (at least 7 per prompt per arm, and 8 if the test measures citations), because the arms are compared directly and live designs with 2 runs a day are too noisy for small effects.
 5. Score both arms in code on the same labels the live study uses (named, claims matched against the truth sheet), with the Human Audit applied.
 
 Reading: if naming and claim accuracy rise materially in the "with facts" arm, the model uses the facts when it has them, which supports "not retrieved" as the failure point. If they do not rise, "retrieved, not used" (or a naming problem) is more likely, and page changes alone are a weak bet.

@@ -99,6 +99,14 @@ Write-ups are Wayfinder evidence and are listed here for navigation. Case data s
 | Visual system for a final round | built | artifact "Zoom Final Round · Visual System" | |
 | Paid search account build (structure, manager account for API) | partial | DefendFam work | Method belongs here; account stays in Forge |
 
+## References
+
+Outside work kept for when methods expand. Not cited inside skills.
+
+| Item | Location | Note |
+|---|---|---|
+| St. Gallen 2026, runs per prompt ("Don't Measure Once," arXiv 2604.07585) | Docs artifact "St. Gallen 2026: Runs per Prompt" | 7 runs per prompt per day for naming, 8 for sources; Swiss-German preprint |
+
 ## Glossary
 
 | Item | Status | Location |
